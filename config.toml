@@ -77,12 +77,7 @@ wechat = "" # 微信二维码
 alipay = "" # 支付宝二维码
 
 ############## 评论系统  start ##############
-[params.gitment] # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-enable = false
-owner = "" # Your GitHub ID
-repo = "" # The repo to store comments
-clientId = "" # Your client ID
-clientSecret = "" # Your client secret
+
 
 [params.utterances] # https://utteranc.es/
 enable = true
@@ -91,37 +86,17 @@ repo = "https://github.com/wubh2012/wubh2012.github.io" # The repo to store comm
 theme = "github-light"
 issueterm = "pathname"
 
-[params.gitalk] # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
-enable = false
-owner = "wubh2012" # Your GitHub ID
-repo = "" # The repo to store comments
-clientId = "" # Your client ID
-clientSecret = "" # Your client secret
-
-# Valine.
-# You can get your appid and appkey from https://leancloud.cn
-# more info please open https://valine.js.org
-[params.valine]
-enable = false
-appId = '你的 appId'
-appKey = '你的 appKey'
-notify = false # mail notifier , https://github.com/xCss/Valine/wiki
-verify = false # Verification code
-avatar = 'mm'
-placeholder = '说点什么吧...'
-visitor = false
-
-[params.giscus] # https://giscus.app
-enable = false
-repo = "forecho/hugo-blog" # Repo where the comments will live
-repo_id = "<data-repo-id>" # Repo where the comments will live
-category = "Announcements" # Repo where the comments will live
-category_id = "<data-category-id>" # Repo where the comments will live
-mapping = "pathname" # How Utterances will match comment to page
-theme = "light" # What theme to use
-reactions_enabled = "1" # Enable reactions
-emit_metadata= "0" # Emit metadata
-lang = "zh-CN" # Language
+#[params.giscus] # https://giscus.app
+#enable = false
+#repo = "forecho/hugo-blog" # Repo where the comments will live
+#repo_id = "<data-repo-id>" # Repo where the comments will live
+#category = "Announcements" # Repo where the comments will live
+#category_id = "<data-category-id>" # Repo where the comments will live
+#mapping = "pathname" # How Utterances will match comment to page
+#theme = "light" # What theme to use
+#reactions_enabled = "1" # Enable reactions
+#emit_metadata= "0" # Emit metadata
+#lang = "zh-CN" # Language
 
 ############ 评论系统  end ##############
 ## 社交链接
