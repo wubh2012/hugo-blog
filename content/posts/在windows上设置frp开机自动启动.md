@@ -1,5 +1,5 @@
 ---
-title: 在windows上在windows上设置frp开机自动启动
+title: 在windows上设置frp开机自动启动
 date: 2020-11-05 20:55:59
 tags: ["frp"]
 ---
