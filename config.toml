@@ -82,7 +82,7 @@ alipay = "" # 支付宝二维码
 [params.utterances] # https://utteranc.es/
 enable = true
 owner = "wubh2012" # Your GitHub ID
-repo = "wubh2012.github.io" # The repo to store comments
+repo = "wubh2012/wubh2012.github.io" # The repo to store comments
 theme = "github-light"
 issueterm = "pathname"
 
