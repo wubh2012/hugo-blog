@@ -78,18 +78,21 @@ alipay = "" # 支付宝二维码
 
 ############## 评论系统  start ##############
 [params.gitment] # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+enable = false
 owner = "" # Your GitHub ID
 repo = "" # The repo to store comments
 clientId = "" # Your client ID
 clientSecret = "" # Your client secret
 
 [params.utterances] # https://utteranc.es/
-owner = "" # Your GitHub ID
-repo = "" # The repo to store comments
+enable = true
+owner = "wubh2012" # Your GitHub ID
+repo = "https://github.com/wubh2012/wubh2012.github.io" # The repo to store comments
 theme = "github-light"
 issueterm = "pathname"
 
 [params.gitalk] # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
+enable = false
 owner = "wubh2012" # Your GitHub ID
 repo = "" # The repo to store comments
 clientId = "" # Your client ID
@@ -109,6 +112,7 @@ placeholder = '说点什么吧...'
 visitor = false
 
 [params.giscus] # https://giscus.app
+enable = false
 repo = "forecho/hugo-blog" # Repo where the comments will live
 repo_id = "<data-repo-id>" # Repo where the comments will live
 category = "Announcements" # Repo where the comments will live
@@ -143,5 +147,6 @@ github = "wubh2012"
 #weibo = "forecho"
 #facebook = "forecho"
 twitter = "twbh_wubh"
+cnblogs = "wubh"
 #douban = "ipzone"
 rss = "/atom.xml"
