@@ -8,6 +8,7 @@ hasCJKLanguage = true
 # 设置页面生成形式，将默认的网站路径/修改成.html
 uglyURLs = true
 googleAnalytics = ""      # UA-XXXXXXXX-X
+enableRobotsTXT = true
 
 ## 评论系统
 changyanAppid = "" # Changyan app id             # 畅言
@@ -22,7 +23,7 @@ lineNoStart = 1
 lineNos = true
 lineNumbersInTable = true
 noClasses = true
-style = "manni"
+style = "dracula"
 tabWidth = 2
 
 # https://gohugo.io/content-management/urls/#aliases
