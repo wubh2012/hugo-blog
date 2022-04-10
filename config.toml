@@ -12,7 +12,6 @@ googleAnalytics = ""      # UA-XXXXXXXX-X
 ## 评论系统
 changyanAppid = "" # Changyan app id             # 畅言
 changyanAppkey = "" # Changyan app key
-disqusShortname = "AALMIX-blog" # disqus account name
 livereUID = "" # LiveRe UID                  # 来必力
 
 [markup.highlight]
