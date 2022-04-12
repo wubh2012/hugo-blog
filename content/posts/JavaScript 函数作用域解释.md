@@ -54,19 +54,19 @@ tom();
 
 * 代码执行的时候先会在全局执行上下文中创建一个 `name` 变量，然后给这个变量复制为 `cargoon`
 
-  ```
+  ``` javascript
   var name = 'cartoon';
   ```
   
 * 当调用`tom()`函数，Javascript 引擎会给`tom()`创建一个函数执行上下文和一个外部环境的引用（全局执行上下文）
 
-  ```
+  ``` javascript
   tom();
   ```
 
 * 当 tom() 函数调用 `jerry()` 函数时，JavaScript 引擎会找到 jerry 函数申明的位置，然后创建 `jerry()`函数的执行上下文和外部环境引用
 
-  ```
+  ``` javascript
   function tom() {
    var name = 'tom';
    jerry();
@@ -79,7 +79,7 @@ tom();
 
   `jerry()` 函数是在全局执行上下文中创建的，尽管它是在 tom() 函数中调用。按照要点2的理解，jerry() 函数有一个指向全局执行执行上下文的指针。
 
-  到目前位置，Are you OK ?  我们还发现，jerry() 函数中并没有申明 `name` 变量，但是在执行阶段它却尝试在控制台打印这个 `name` 变量的值
+  到目前为止，Are you OK ?  我们还发现，jerry() 函数中并没有申明 `name` 变量，但是在执行阶段它却尝试在控制台打印这个 `name` 变量的值
 
   ```javascript
   function jerry() {
@@ -105,7 +105,7 @@ tom();
 
 测试时间又到了！下面的代码将会打印出什么？
 
-```
+``` javascript
 function tom() {
   var name = 'tom';
   function jerry() {
@@ -129,7 +129,7 @@ tom();
 
 如果在代码块中使用 `let` 关键字申明变量，那么变量只在这个代码块中可以被访问。
 
-```
+``` javascript
 {
   let name = "tom"; // only visible in this block
 
@@ -143,7 +143,7 @@ console.log(name); // Error: name is not defined
 
 另一个例子：
 
-```
+``` javascript
 {
   // declare name
   let name= "tom";
@@ -161,7 +161,7 @@ console.log(name); // Error: name is not defined
 
 即使对于 `if`, for , while 等等，使用了 `let` 在块级作用域中声明的代码也只能在块中访问，下面是 for 循环的例子
 
-```
+``` javascript
 for (let counter = 0; counter < 10; counter++) {
   // the variable counter is with let 
   // hence visible only inside the block {...}
