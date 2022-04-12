@@ -116,7 +116,7 @@ docker build --tag my-app:1.0 .
 # --tag 可以简写成 -t
 docker build -t my-app:1.0 .
 ```
-![image-20210516164412510](http://img.aalmix.com/image-20210516164412510.png)
+![image-20210516164412510](https://static.aalmix.com/image-20210516164412510.png)
 
 分解上面的命令
 
@@ -129,7 +129,7 @@ docker build -t my-app:1.0 .
 ```
 docker images
 ```
-![image-20210516164445416](http://img.aalmix.com/image-20210516164445416.png)
+![image-20210516164445416](https://static.aalmix.com/image-20210516164445416.png)
 
 如果构建镜像时只有 `--tag`并没有指定版本的话，那么默认使用的版本就是 `latest`。
 
@@ -137,10 +137,10 @@ docker images
 docker build --tag my-app .
 docker images
 ```
-![image-20210516164919632](http://img.aalmix.com/image-20210516164919632.png)
+![image-20210516164919632](https://static.aalmix.com/image-20210516164919632.png)
 
 除了使用 `docker build --tag ` 命令给镜像打标签之外，还可以使用 `docker tag`命令。因为同一个镜像可以有多个标签，使用`docker tag `可以给通过`docker build --tag`构建的镜像打上新的标签。
-![image-20210516170500356](http://img.aalmix.com/image-20210516170500356.png)
+![image-20210516170500356](https://static.aalmix.com/image-20210516170500356.png)
 
 注意：现在my-app有多个镜像版本，它们的 Image ID 都相同但 Repository Name 却不同，但实际上它们都同一个镜像，Repository Name 与使用 `docker push`将镜像推送到Docker镜像仓库的名称有关，在此处不详细展开讲。
 
@@ -174,7 +174,7 @@ docker pull nginx:1.18.0
 ```
 
 上面的命令将从Docker Hub 拉取官方的 1.18.0 版本的 nginx 镜像。
-![image-20210516172205211](http://img.aalmix.com/image-20210516172205211.png)
+![image-20210516172205211](https://static.aalmix.com/image-20210516172205211.png)
 
 如果不指定nginx 的版本，默认会拉取标记为`latest`最新的版本。
 

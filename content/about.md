@@ -13,5 +13,6 @@ draft: false
 ## 联系方式
 
 * Email: 731554562@qq.com
+* GitHub: https://github.com/wubh2012
 * 微信： AALMIX
-
+![aalmix](https://static.aalmix.com/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7-AALMIX.png)
