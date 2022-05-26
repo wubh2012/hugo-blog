@@ -1,7 +1,7 @@
 ---
 title: "使用hugo搭建博客 - 利用 Github Actions 自动部署网站"
 date: 2022-05-25T21:50:44+08:00
-draft: true
+draft: false
 tags: ["博客", "hugo"]
 ---
 
@@ -9,9 +9,14 @@ tags: ["博客", "hugo"]
 
 ## 什么是 GitHub Action
 
+GitHub Actions 是 GitHub 官方推出的持续集成服务。通过 GitHub Actions 可以为你的项目提供持续构建，测试，程序打包和部署一条龙服务。
+
 ## 怎么使用
 
-依葫芦画瓢，创建一个 `.github/workflow` 这样的目录，然后再创建一个 deploy.yml 文件，内容如下：
+进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤操作即可。
+
+![微信截图_20220526140607](https://static.aalmix.com/微信截图_20220526140607.png)
+![微信截图_20220526140646](https://static.aalmix.com/微信截图_20220526140646.png)
 
 ```yaml
 name: github pages
@@ -59,6 +64,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          cname: blog.aalmix.com
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
 ```
