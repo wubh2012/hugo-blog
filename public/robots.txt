@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://blog.aalmix.com/sitemap.xml

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.96.0" />
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content="Saber v0.11.2">
+    <meta name="author" content="AALMIX" />
+    <meta name="keywords" content="AALMIX, 水果芋头, C#, Asp.net, Asp.net MVC, android, vue, java, web develoment" />
+    <meta name="og:site_name" content="AALMIX&#39;s Blog" /><meta property="og:type" content="article" />
+    <meta property="title" content="JavaScript 函数作用域的解释 - AALMIX&#39;s Blog">
+    <meta property="og:title" content="JavaScript 函数作用域的解释 - AALMIX&#39;s Blog">
+    <meta property="twitter:title" content="JavaScript 函数作用域的解释 - AALMIX&#39;s Blog">
+    <meta name="description" content="JavaScript 函数作用域的解释 本文将解释作用域的相关概念，我们将学习并理解作用域链的重要性。 测验时间 下面的代码执行后将会打印出什么？为什么？ 1 2 3 4 5 6">
+    <meta property="og:description" content="JavaScript 函数作用域的解释 本文将解释作用域的相关概念，我们将学习并理解作用域链的重要性。 测验时间 下面的代码执行后将会打印出什么？为什么？ 1 2 3 4 5 6">
+    <meta property="twitter:description" content="JavaScript 函数作用域的解释 本文将解释作用域的相关概念，我们将学习并理解作用域链的重要性。 测验时间 下面的代码执行后将会打印出什么？为什么？ 1 2 3 4 5 6">
+    <meta property="og:type" content="article">
+    <title>JavaScript 函数作用域的解释 - AALMIX&#39;s Blog</title>
+
+    <meta property="og:url" content="https://blog.aalmix.com/javascript-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A.html" />
+
+    
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/22315624?s=400&amp;u=0f4091c87fa6cb1f7ed21d691a5e0bc3eb0b0814&amp;v=4">
+    <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/22315624?s=400&amp;u=0f4091c87fa6cb1f7ed21d691a5e0bc3eb0b0814&amp;v=4">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/22315624?s=460&amp;v=4" type="image/x-png" />
+    
+      
+      <link rel="stylesheet" href="/css/main.min.33921bf2143df77f1430be79d7f9bfdf40652e31b1902c0fdab0296c7e79011d.css" integrity="sha256-M5Ib8hQ9938UML551/m/30BlLjGxkCwP2rApbH55AR0="/>
+    
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1607597_jhmihcvh0tm.css" />
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="AALMIX&#39;s Blog">
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxx"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 tracking-wider leading-normal">
+
+    <nav id="header" class="bg-white dark:bg-black fixed w-full z-10 top-0 shadow">
+
+  <div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
+
+  <div class="w-full container mx-auto flex flex-wrap items-center justify-between my-1">
+      <div class="pl-4">
+          <a class="text-base no-underline hover:no-underline font-bold text-xl"  href="/">
+              AALMIX&#39;s Blog
+          </a>
+      </div>
+
+      <div class="block lg:hidden pr-4">
+          <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none">
+              <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+          </button>
+      </div>
+
+      <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 dark:bg-black md:bg-transparent z-20" id="nav-content">
+          <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                    <li class="mr-3">
+                    <a href="/" class="inline-block py-2 px-2 text-gray-700 dark:text-gray-300 font-bold no-underline">HOME</a>
+                    </li>
+                    <li class="mr-3">
+                    <a href="/posts.html" class="inline-block py-2 px-2 text-gray-700 dark:text-gray-300 font-bold no-underline">ARCHIVE</a>
+                    </li>
+                    <li class="mr-3">
+                    <a href="/about.html" class="inline-block py-2 px-2 text-gray-700 dark:text-gray-300 font-bold no-underline">ABOUT</a>
+                    </li>
+                    <li class="mr-3">
+                    <a href="/atom.xml" class="inline-block py-2 px-2 text-gray-700 dark:text-gray-300 font-bold no-underline">RSS</a>
+                    </li>
+                <button id="switchTheme" class="h-10 w-10 flex justify-center items-center focus:outline-none">
+                    <div id="dark-icon" class="hidden">
+                        <svg data-v-297af853="" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"><title data-v-297af853="">Dark Mode</title> <path data-v-297af853="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </div>
+                    <div id="light-icon">
+                        <svg data-v-297af853="" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"><title data-v-297af853="">Light Mode</title> <path data-v-297af853="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div> 
+                </button>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+    <div id="container" class="container w-full flex flex-wrap mx-auto px-2 lg:pt-12 mt-10">
+<section class="w-full lg:w-3/4 xl:w-3/4">
+
+    
+    <div class="px-8 py-6 mt-6 lg:mt-0 leading-normal rounded shadow bg-white dark:bg-black">
+
+        
+        <div>
+    <h1 class="font-bold break-normal text-gray-800 pt-2 pb-2 text-2xl lg:text-3xl dark:text-white">
+        <a href="https://blog.aalmix.com/javascript-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A.html" title="JavaScript 函数作用域的解释">JavaScript 函数作用域的解释</a>
+    </h1>
+    <p class="mb-1 text-sm text-gray-500 dark:text-gray-300">
+        <span title=" 2020-12-20 15:51:29 UTC">
+            <i class="iconfont icon-calendar" aria-hidden="true"></i> 20 Dec 2020
+        </span>
+
+        <span class="hidden xl:inline-block">
+            |
+            <i class="iconfont icon-book"></i>
+            1705 字
+        </span>
+
+        <span class="hidden xl:inline-block">
+            |
+            <i class="iconfont icon-clock-o"></i>
+            4 分钟读完
+        </span>
+    </p>
+</div>
+
+
+        <div class="md:hidden dark:text-gray-100">
+            
+<p class="text-base font-bold py-2 yg:pb-6 text-gray-700 dark:text-gray-300">文章目录</p>
+    <div class="sticky text-sm" style="top:6em;" id="menu-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测验时间">测验时间</a></li>
+    <li><a href="#作用域-scope">作用域 Scope</a></li>
+    <li><a href="#回顾一下">回顾一下</a></li>
+    <li><a href="#作用域和作用域链">作用域和作用域链</a></li>
+    <li><a href="#作用域的变化">作用域的变化</a></li>
+    <li><a href="#块级作用域-block-scope">块级作用域 Block Scope</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+    </div>
+
+        </div> 
+
+        <div class="post-content dark:text-white">
+            <h1 id="javascript-函数作用域的解释">JavaScript 函数作用域的解释</h1>
+<p>本文将解释作用域的相关概念，我们将学习并理解作用域链的重要性。</p>
+<h2 id="测验时间">测验时间</h2>
+<p>下面的代码执行后将会打印出什么？为什么？</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> jerry() {
+</span></span><span style="display:flex;"><span>  console.log(name);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> tom() {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;tom&#39;</span>;
+</span></span><span style="display:flex;"><span>  jerry();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;cartoon&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tom();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>是打印出 <code>cartoon</code>, <code>tom</code> 还是 <code>undefined</code> 吗? 更重要的是，你是怎么判断然后得到答案的？你用到了作用域了，执行上下文了吗？</p>
+<h2 id="作用域-scope">作用域 Scope</h2>
+<p>上面题目的答案是，<code>cartoon</code>。 让我们进一步探索和理解它吧</p>
+<blockquote>
+<p><em>In JavaScript, Scope is the mechanism to determine the accessibility of variables throughout their existence. It could be inside or outside of a function call.</em></p>
+</blockquote>
+<p>首先让我们将上面的代码拆分成几部分，然后看看变量的可访问性是如何随着变量声明的位置和函数的位置的变化而变化的。</p>
+<h2 id="回顾一下">回顾一下</h2>
+<p>以下是我们对 JavaScript 执行上下文理解的一些要点：</p>
+<ul>
+<li>有一个叫做全局执行上下文（<code>Global Execution Context</code>）和函数执行上下文(<code>Function Execution Context</code>)的东西</li>
+<li>每一个执行上下文都有一个特殊的　<code>this</code>  和 外部环境引用 <code>reference to the Outer Environment</code></li>
+<li>当我们调用函数时，JavaScript 引擎会创建当前函数的执行上下文和一个外部引用</li>
+<li>函数可以访问外部引用中定义的变量。当 JavaScript 引擎无法在当前执行上下文中找到变量的时候，它就会去外部引用中去查找。</li>
+</ul>
+<h2 id="作用域和作用域链">作用域和作用域链</h2>
+<p>在上面的代码中，有2个函数调用，tom() 和 jerry() ，因此会创建2个不同的函数执行上下文。</p>
+<p>请记住，JS代码执行的时候始终会创建一个全局执行上下文，其中关键字 <code>this</code> 等于 <code>window</code> 对象。 因此在上面的代码中我们总共有3个执行上下文，一个全局执行上下文，两个函数执行上下文，分别是 <code>tom()</code>和<code>jerry()</code> 。
+<img src="https://static.aalmix.com/20210309172743.jpg" alt="functions.png"></p>
+<ul>
+<li>
+<p>代码执行的时候先会在全局执行上下文中创建一个 <code>name</code> 变量，然后给这个变量复制为 <code>cargoon</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;cartoon&#39;</span>;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>当调用<code>tom()</code>函数，Javascript 引擎会给<code>tom()</code>创建一个函数执行上下文和一个外部环境的引用（全局执行上下文）</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>tom();
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>当 tom() 函数调用 <code>jerry()</code> 函数时，JavaScript 引擎会找到 jerry 函数申明的位置，然后创建 <code>jerry()</code>函数的执行上下文和外部环境引用</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> tom() {
+</span></span><span style="display:flex;"><span> <span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;tom&#39;</span>;
+</span></span><span style="display:flex;"><span> jerry();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>等等，<code>jerry()</code> 函数的外部环境引用是谁？是 <code>tom()</code>函数的执行上下文还是全局执行上下文？这取决于另一个问题的答案</p>
+<blockquote>
+<p>谁调用了 jerry() 函数，它在哪里声明创建的？</p>
+</blockquote>
+<p><code>jerry()</code> 函数是在全局执行上下文中创建的，尽管它是在 tom() 函数中调用。按照要点2的理解，jerry() 函数有一个指向全局执行执行上下文的指针。</p>
+<p>到目前为止，Are you OK ?  我们还发现，jerry() 函数中并没有申明 <code>name</code> 变量，但是在执行阶段它却尝试在控制台打印这个 <code>name</code> 变量的值</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> jerry() {
+</span></span><span style="display:flex;"><span>  console.log(name);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个时候，JavaScript 引擎会去 jerry() 函数的外部引用（全局执行上下文）中去查找 <code>name</code> 变量，然后它在全局执行上下文中找到了 cartoon 这个值。</p>
+<p>现在我们知道答案为什么是 <code>cartoon</code> 了吧。</p>
+<p><img src="https://static.aalmix.com/20210309172749.gif" alt="flow1"></p>
+</li>
+</ul>
+<p>​</p>
+<p>在当前执行上下文和外部引用中查找变量的整个过程就形成了的链条叫做<code>作用域链</code>。我们还可以得出结论，变量<code>name</code>在函数 jerry() 的作用域中，因为它是在 jerry() 函数作用域中被找到的。</p>
+<p><img src="https://static.aalmix.com/20210309172753.jpg" alt="scope_chain"></p>
+<h2 id="作用域的变化">作用域的变化</h2>
+<p>测试时间又到了！下面的代码将会打印出什么？</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> tom() {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;tom&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">function</span> jerry() {
+</span></span><span style="display:flex;"><span>    console.log(name);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  jerry();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;cartoon&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tom();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这次我们稍微做了一些小改动，现在 jerry() 函数是在 tom() 函数里面创建的。jerry() 函数的外部引用将会指向 tom() 函数的执行上下文。因此变量 <code>name</code> 将在tom() 函数的作用域链中被找到。所以，上面的答案就是 <code>tom</code> !</p>
+<p><img src="https://static.aalmix.com/20210309172759.gif" alt="flow2"></p>
+<h2 id="块级作用域-block-scope">块级作用域 Block Scope</h2>
+<p>既然我们理解了作用域的基本原理，那么就让我们来理解一下什么是块级作用域。代码块通过大括号定义<code>{...}</code>。</p>
+<p>如果在代码块中使用 <code>let</code> 关键字申明变量，那么变量只在这个代码块中可以被访问。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;tom&#34;</span>; <span style="color:#6272a4">// only visible in this block
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>  console.log(name); <span style="color:#6272a4">// tom
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(name); <span style="color:#6272a4">// Error: name is not defined
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果我们使用 <code>var</code> 而不是 <code>let</code>  创建变量，就不存这个块级作用域了。</p>
+<p>另一个例子：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// declare name
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd;font-style:italic">let</span> name<span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;tom&#34;</span>;
+</span></span><span style="display:flex;"><span>  console.log(name);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// declare name in another block
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd;font-style:italic">let</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;jerry&#34;</span>;
+</span></span><span style="display:flex;"><span>  console.log(name);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的代码会在控制台中分别打印 tom 和 jerry 。</p>
+<p>即使对于 <code>if</code>, for , while 等等，使用了 <code>let</code> 在块级作用域中声明的代码也只能在块中访问，下面是 for 循环的例子</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> counter <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; counter <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">10</span>; counter<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// the variable counter is with let 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#6272a4">// hence visible only inside the block {...}
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  console.log(counter); 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(counter); <span style="color:#6272a4">// Error, counter is not defined
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>理解作用域的基本概念，比如执行上下文、外部引用等等，将有助于我们调试代码，作为 JavaScript 的开发者，我们对于了解JavaScript 内部代码的工作方式更有信息。</p>
+<p>引用</p>
+<ul>
+<li><a href="https://leanpub.com/ydkjsy-scope-closures/read_sample">Scope and Closure</a> from You don&rsquo;t know JS yet series.</li>
+<li><a href="https://javascript.info/closure">Variable Scope</a> from <a href="http://javascript.info/">javascript.info</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">https://developer.mozilla.org/en-US/docs/Glossary/Scope</a></li>
+</ul>
+<p>文章来源： <a href="https://blog.greenroots.info/javascript-scope-fundamentals-with-tom-and-jerry-ckcq723h4007vkxs18dxa97ae">https://blog.greenroots.info/javascript-scope-fundamentals-with-tom-and-jerry-ckcq723h4007vkxs18dxa97ae</a></p>
+
+
+            <hr class="bg-gray-300 mt-8">
+
+            
+
+            
+<div class="border-l-4 border-red-400 mx-auto text-gray-500">
+    <div class="copyright">
+        <ul class="list-none">
+            <li>
+                <strong>原文作者：</strong>
+                <a rel="author" href="https://blog.aalmix.com">AALMIX</a>
+            </li>
+            <li style="word-break:break-all">
+                <strong>原文链接：</strong>
+                <a href="https://blog.aalmix.com/javascript-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A.html">https://blog.aalmix.com/javascript-%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A.html</a>
+            </li>
+            <li>
+                <strong>版权声明：</strong>本作品采用
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh">署名 - 非商业性使用 4.0 国际 (CC BY-NC 4.0)</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。
+            </li>
+        </ul>
+    </div>
+ 
+</div>
+
+
+        </div>
+
+        
+        <div class="text-base md:text-sm text-gray-500 pt-6">
+                <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 hover:bg-gray-300"
+                    href="https://blog.aalmix.com/tags/javascript.html">
+                    #javascript
+                </a>
+                <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 hover:bg-gray-300"
+                    href="https://blog.aalmix.com/tags/%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F.html">
+                    #函数作用域
+                </a>
+                                    
+            </div>
+        
+
+         
+        
+            <p class="text-gray-500 text-sm text-right pt-1">
+                <span id="busuanzi_container_page_pv">
+                    本文有 <span id="busuanzi_value_page_pv"></span> 次阅读
+                </span>
+            </p>
+        
+
+    </div>
+    
+
+    
+    <hr class="bg-gray-300 dark:bg-gray-300 my-10 ">
+
+    
+        
+        
+        <div class="comments">
+            
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="wubh2012/wubh2012.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+  
+        </div>
+
+        
+
+
+<div class="p-8 mt-6 lg:mt-0 rounded shadow bg-white dark:bg-black">
+    <h2 class="font-sans font-bold break-normal text-gray-700 px-2 pb-3 text-xl dark:text-gray-300">相关文章</h2>
+    
+    <li><a href="/frp%E4%BD%BF%E7%94%A8systemd%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C.html" class="underline text-yellow-600">frp使用systemd在linux系统下实现开机自动运行</a></li>
+    
+    <li><a href="/frp%E6%90%AD%E9%85%8Dnginx%E5%B0%86https%E8%AF%B7%E6%B1%82%E6%98%A0%E5%B0%84%E5%88%B0%E5%86%85%E7%BD%91.html" class="underline text-yellow-600">frp搭配nginx将https请求映射到内网</a></li>
+    
+    <li><a href="/%E5%A6%82%E4%BD%95%E5%9C%A8markdown%E6%96%87%E6%A1%A3%E6%98%BE%E7%A4%BAdiff%E6%95%88%E6%9E%9C.html" class="underline text-yellow-600">如何在Markdown文档显示diff效果</a></li>
+    
+    <li><a href="/%E5%9C%A8windows%E4%B8%8A%E8%AE%BE%E7%BD%AEfrp%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8.html" class="underline text-yellow-600">在windows上设置frp开机自动启动</a></li>
+    
+    <li><a href="/%E4%BD%BF%E7%94%A8frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%95%99%E7%A8%8B.html" class="underline text-yellow-600">使用frp内网穿透教程</a></li>
+    
+</div>
+
+
+    
+
+</section>
+
+
+<div class="hidden xl:text-sm xl:block xl:w-1/4 xl:px-6 ">
+
+    <div class="lg:w-full mx-auto items-center justify-between">
+    <div class="bg-white shadow rounded overflow-hidden dark:bg-black">
+        <div class="bg-cover mx-auto w-32 h-32 mt-5 rounded-full" style="background-image: url('https://avatars.githubusercontent.com/u/22315624?s=400&amp;u=0f4091c87fa6cb1f7ed21d691a5e0bc3eb0b0814&amp;v=4')"> </div>
+        
+        <div class="p-4">
+            <p class="text-2xl text-center pb-2">AALMIX</p>
+            <p class="text-sm text-center text-gray-700 dark:text-gray-300"> 一名普通的程序员 😀</p>
+        </div>
+        <div class="flex p-4 border-t text-sm border-gray-300 text-gray-700 dark:text-gray-300">
+            <div class="flex-1 border-r border-gray-600">
+                <p class="text-center">
+                    <span class="font-bold ">
+                        13
+                    </span>
+                    文章
+                </p>
+            </div>
+            <div class="flex-1 text-center">
+                <p class="text-center">
+                    <span class="font-bold">
+                        
+                            10
+                        
+                    </span>
+                    标签
+                </p>
+            </div>
+        </div>
+        <div class="px-4 pb-4 border-t border-gray-300 dark:text-gray-200">
+            <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between text-gray-500">
+                
+                <a href="//github.com/wubh2012" class="hover:text-gray-900 dark:hover:text-gray-100 p-1 text-2xl" target="_blank" title="GitHub"><i class="my-iconfont icon-social-github"></i></a>
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <a href="//twitter.com/twbh_wubh" class="hover:text-gray-900 dark:hover:text-gray-100 p-1 text-2xl" target="_blank" title="Twitter"><i class="my-iconfont icon-social-twitter"></i></a>
+                
+
+                
+
+                
+                <a href="/atom.xml" class="hover:text-gray-900 dark:hover:text-gray-100 p-1 text-2xl" target="_blank" title="RSS"><i class="my-iconfont icon-feed"></i></a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="flex flex-col justify-between sticky top-0 pt-12 pb-4 -mt-10 text-gray-600 dark:text-gray-400">
+        <div class="bg-white shadow rounded p-4 mt-5 dark:bg-black">
+            
+<p class="text-base font-bold py-2 yg:pb-6 text-gray-700 dark:text-gray-300">文章目录</p>
+    <div class="sticky text-sm" style="top:6em;" id="menu-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测验时间">测验时间</a></li>
+    <li><a href="#作用域-scope">作用域 Scope</a></li>
+    <li><a href="#回顾一下">回顾一下</a></li>
+    <li><a href="#作用域和作用域链">作用域和作用域链</a></li>
+    <li><a href="#作用域的变化">作用域的变化</a></li>
+    <li><a href="#块级作用域-block-scope">块级作用域 Block Scope</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+    </div>
+
+        </div>
+    </div>
+   
+</div> 
+
+    </div>
+    
+    
+<footer class="bg-white dark:bg-black border-gray-400 shadow mt-10">	
+    <div class="container  mx-auto flex py-8">
+        <div class="w-full text-center text-gray-600 dark:text-gray-400">
+            <p>
+                &copy; 2022 <a  class="text-gray-700 dark:text-gray-300 font-semibold" href="https://blog.aalmix.com">AALMIX&#39;s Blog</a> By AALMIX 
+            </p>
+            
+            <p class="pt-1">
+                Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io/"  class="text-gray-700 dark:text-gray-300 font-semibold" target="_blank">Hugo</a> 
+                Theme based on <a href="https://github.com/forecho/hugo-theme-echo" class="text-gray-700 dark:text-gray-300 font-semibold" target="_blank">Echo</a>
+            </p>
+
+            <span id="busuanzi_container">
+              访客数：<span id="busuanzi_value_site_uv"></span> | 访问量 <span id="busuanzi_value_site_pv"></span>
+            </span>
+
+        </div>
+
+    </div>
+</footer>
+
+ <script>
+  window.onload = function() {
+    document.getElementById("nav-toggle").onclick = function() {
+      document.getElementById("nav-content").classList.toggle("hidden");
+    };
+
+    var donate = document.getElementById("btn-donate");
+    if (donate) {
+      donate.onclick = function() {
+        document.getElementById("donate-image").classList.remove("hidden");
+        donate.classList.add("hidden");
+      };
+    }
+
+    var hostname = window.location.hostname;
+    var divs = document.querySelectorAll('a[href^="http"]');
+    [].forEach.call(divs, function(div) {
+      url = div.getAttribute("href");
+      var domain = url
+        .replace("http://", "")
+        .replace("https://", "")
+        .split(/[/?#:]/)[0];
+      if (domain !== hostname) {
+        div.setAttribute("target", "_blank");
+      }
+    });
+  };
+
+   
+  
+  var h = document.documentElement,
+    b = document.body,
+    st = "scrollTop",
+    sh = "scrollHeight",
+    progress = document.querySelector("#progress"),
+    scroll;
+  var scrollpos = window.scrollY;
+  var header = document.getElementById("header");
+  var navcontent = document.getElementById("nav-content");
+
+  document.addEventListener("scroll", function() {
+     
+    scroll = ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+    progress.style.setProperty("--scroll", scroll + "%");
+
+     
+    scrollpos = window.scrollY;
+
+    if (scrollpos > 10) {
+      navcontent.classList.remove("bg-gray-100");
+    } else {
+      navcontent.classList.add("bg-gray-100");
+    }
+  });
+
+  
+  if (localStorage.theme === 'dark' || (!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      var lightIcon = document.getElementById("light-icon");
+      var darkIcon = document.getElementById("dark-icon"); 
+      lightIcon.classList.add("hidden");
+      darkIcon.classList.remove("hidden");
+      document.querySelector('html').classList.add('dark')
+  }
+
+  document.getElementById('switchTheme').addEventListener('click', function() {
+    let htmlClasses = document.querySelector('html').classList;
+    var lightIcon = document.getElementById("light-icon");
+    var darkIcon = document.getElementById("dark-icon");
+    if(localStorage.theme == 'dark') {
+        htmlClasses.remove('dark');
+        localStorage.removeItem('theme');
+        darkIcon.classList.add("hidden");
+        lightIcon.classList.remove("hidden");
+    } else {
+        htmlClasses.add('dark');
+        lightIcon.classList.add("hidden");
+        darkIcon.classList.remove("hidden");
+        localStorage.theme = 'dark';
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-baseUrl = "https://blog.aalmix.com"
+baseUrl = "https://wubh2012.github.io"
 languageCode = "en-us"
 title = "AALMIX's Blog"
 theme = "echo"
@@ -41,11 +41,11 @@ limit = 20
 name = "AALMIX"
 avatar = "https://avatars.githubusercontent.com/u/22315624?s=400&u=0f4091c87fa6cb1f7ed21d691a5e0bc3eb0b0814&v=4"
 bio = " 一名普通的程序员 😀"
-homepage = "https://aalmix.com/"
+homepage = "https://wubh2012.github.io"
 
 [params]
 favicon = "https://avatars.githubusercontent.com/u/22315624?s=460&v=4"
-keywords = "AALMIX, 水果芋头, C#, Asp.net, Asp.net MVC, android, vue, java, web develoment"
+keywords = "AALMIX, 水果芋头"
 description = "AALMIX, aalmix blog, aalmix 独立博客，水果芋头"
 toc = true
 navItems = [
@@ -123,5 +123,4 @@ github = "wubh2012"
 #facebook = "forecho"
 twitter = "twbh_wubh"
 cnblogs = "wubh"
-#douban = "ipzone"
 rss = "/atom.xml"

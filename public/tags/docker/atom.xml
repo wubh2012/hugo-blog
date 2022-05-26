@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on AALMIX&#39;s Blog</title>
+    <link>https://blog.aalmix.com/tags/docker.html</link>
+    <description>Recent content in docker on AALMIX&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Apr 2022 10:37:09 +0800</lastBuildDate><atom:link href="https://blog.aalmix.com/tags/docker/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 指南</title>
+      <link>https://blog.aalmix.com/docker-guide.html</link>
+      <pubDate>Sat, 09 Apr 2022 10:37:09 +0800</pubDate>
+      
+      <guid>https://blog.aalmix.com/docker-guide.html</guid>
+      <description>Docker 指南 本文的目的是解释与 Docker 相关的重要概念，以便能够有效的使用 Docker 开发应用程序。 什么是 Docker? Docker 是一个能够在独立的环境中运行应用程序的的工具。 它可以确</description>
+    </item>
+    
+  </channel>
+</rss>

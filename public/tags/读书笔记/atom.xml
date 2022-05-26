@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书笔记 on AALMIX&#39;s Blog</title>
+    <link>https://blog.aalmix.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html</link>
+    <description>Recent content in 读书笔记 on AALMIX&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Oct 2020 10:37:09 +0800</lastBuildDate><atom:link href="https://blog.aalmix.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>猎豹行动读书笔记</title>
+      <link>https://blog.aalmix.com/%E7%8C%8E%E8%B1%B9%E8%A1%8C%E5%8A%A8%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html</link>
+      <pubDate>Thu, 01 Oct 2020 10:37:09 +0800</pubDate>
+      
+      <guid>https://blog.aalmix.com/%E7%8C%8E%E8%B1%B9%E8%A1%8C%E5%8A%A8%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.html</guid>
+      <description>传统模式的问题 瀑布模型对业务部门的痛点 逾期交付 超支 看到成品时项目已经接近尾声 缺乏透明度，不知道具体进度 很难变更需求 最终开发的产品不是他们想要</description>
+    </item>
+    
+  </channel>
+</rss>

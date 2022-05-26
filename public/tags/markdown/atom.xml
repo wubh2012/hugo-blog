@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on AALMIX&#39;s Blog</title>
+    <link>https://blog.aalmix.com/tags/markdown.html</link>
+    <description>Recent content in Markdown on AALMIX&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Nov 2020 17:14:11 +0000</lastBuildDate><atom:link href="https://blog.aalmix.com/tags/markdown/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在Markdown文档显示diff效果</title>
+      <link>https://blog.aalmix.com/%E5%A6%82%E4%BD%95%E5%9C%A8markdown%E6%96%87%E6%A1%A3%E6%98%BE%E7%A4%BAdiff%E6%95%88%E6%9E%9C.html</link>
+      <pubDate>Fri, 13 Nov 2020 17:14:11 +0000</pubDate>
+      
+      <guid>https://blog.aalmix.com/%E5%A6%82%E4%BD%95%E5%9C%A8markdown%E6%96%87%E6%A1%A3%E6%98%BE%E7%A4%BAdiff%E6%95%88%E6%9E%9C.html</guid>
+      <description>我最喜欢的一个博客技巧就是在 Github 风格的 markdown 中使用 diff 格式，使用这个这个技巧可以显示代码片段中修改的地方。 如果我想给其他人显示一个函数修改的状态历史</description>
+    </item>
+    
+  </channel>
+</rss>

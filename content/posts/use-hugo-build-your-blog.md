@@ -1,12 +1,14 @@
 ---
-title: "如何使用 Hugo 搭建自己的博客"
+title: "如何使用 hugo 搭建自己的博客"
 date: 2022-04-12T14:13:41+08:00
-draft: true
+draft: false
+tags: ["博客", "hugo"]
 ---
 
 今天我们来讲讲如何使用 Hugo 搭建自己的博客。
 
 ## 下载 Hugo
+
 首先我们到 [Hugo Release](https://github.com/gohugoio/hugo/releases) 页面根据自己的操作系统版本下载 Hugo，本文以 Windows 为例，我们下载 Windows x64 版本，然后将文件解压到 `D:/software/hugo` 目录下
 
 ![20220417210225](https://static.aalmix.com/20220417210225.png)
@@ -22,14 +24,17 @@ draft: true
 配置好环境变量后我们就可以在任意一个目录下执行 `hugo` 命令了。
 
 ## 创建博客站点
+
 我们可以使用 `hugo new site myblog` 创建一个新的博客站点，然后在 `myblog` 目录下执行 `hugo server` 命令，hugo 默认端口使用的是 1313, 我们在浏览器中输入 `http://localhost:1313` 就可以访问了如下图所示：
-![hugo文件目录架构图](XXXX)
+
 ![20220420211247](https://static.aalmix.com/20220420211247.png)
 由于我们目前还没有写任何文章，所以看到的是一个空白的页面。
 ![20220420211620](https://static.aalmix.com/20220420211620.png)
 
 ### 添加主题
+
 在 myblog 根目录下，运行下面命令，添加主题 [hugo-theme-echo](https://github.com/forecho/hugo-theme-echo)
+
 ```
     git init # 初始化 git
     git submodule add https://github.com/forecho/hugo-theme-echo.git themes/echo
@@ -37,11 +42,12 @@ draft: true
     npm ci # 本地开发才需要
 ```
 
-
 ### 修改 hugo 配置
+
 大家可以根据我的 [config.toml](https://github.com/wubh2012/wubh2012.github.io/blob/master/config.toml) 文件进行修改。
+
 ```
-baseUrl = "https://blog.aalmix.com"
+baseUrl = "https://wubh2012.githuo.io"
 languageCode = "en-us"
 title = "AALMIX's Blog"
 theme = "echo"
@@ -88,7 +94,7 @@ homepage = "https://aalmix.com/"
 
 [params]
 favicon = "https://avatars.githubusercontent.com/u/22315624?s=460&v=4"
-keywords = "AALMIX, 水果芋头, C#, Asp.net, Asp.net MVC, android, vue, java, web develoment"
+keywords = "AALMIX, 水果芋头,web develoment"
 description = "AALMIX, aalmix blog, aalmix 独立博客，水果芋头"
 toc = true
 navItems = [
@@ -137,23 +143,24 @@ twitter = "twbh_wubh"
 cnblogs = "wubh"
 rss = "/atom.xml"
 ```
+
 然后我们再运行 `hugo server -D` 命令，在浏览器中输入 `http://localhost:1313` 就可以看到我们的新博客了。
 补上带图片的。
 
+## 写下你的第一篇文章
 
-## 写下你的第一篇文章吧
+使用命令 `hugo new posts/hello-world.md`, 会在 `content/posts/` 目录下创建一个 hello-world.md 文件，Hugo 允许你使用 yaml，toml 或者 json 语法在你每一篇文章的开头进行设置。
 
-使用命令 `hugo new posts/hello-world.md`, 会在 `content/posts/` 目录下创建一个 hello-world.md 文件，Hugo 允许你使用 yaml， toml 或者 json 语法在你每一篇文章的开头进行设置。
 ```
 ---
 # 常用定义
 title: "An Example Post"           # 标题
-date: 2018-01-01T16:01:23+08:00    # 创建时间
-lastmod: 2018-01-02T16:01:23+08:00 # 最后修改时间
+date: 2022-04-12T16:01:23+08:00    # 创建时间
+lastmod: 2022-04-12T16:01:23+08:00 # 最后修改时间
 draft: false                       # 是否是草稿？
 tags: ["tag-1", "tag-2", "tag-3", "popular"]  # 标签
 categories: ["index"]              # 分类
-author: "forecho"                  # 作者
+author: "wubh2012"                  # 作者
 
 # 用户自定义
 # 你可以选择 关闭 (false) 或者 打开 (true) 以下选项
@@ -161,32 +168,20 @@ comment: false   # 关闭评论
 toc: false       # 关闭文章目录
 reward: false	 # 关闭打赏
 ---
+## Hello World!
 ```
+
+然后我们再次运行 `hugo serve -D` 命令，在浏览器中输入 `http://localhost:1313/hello-world.html` 就可以看到我们的新文章了。
 
 ## 发布到 GitHub
-1. 在 Github 创建一个与你账号同名的仓库
-2. 在设置中启用 GitPage
-3. 将 public 文件夹的内容拷贝到仓库中
-4. 访问 xxx.github.io 
 
-## 使用 Github Action 自动部署
-之前的方式有个问题就是每次写完文章后还需要手动上传的 GitHub 上，这样不方便，我们可以使用 [Github Action] 创建一个脚本，这样就可以自动部署了。
-```
-Github Action bash
+1. 在 Github 创建一个与你账号同名的仓库，以 wubh2012.github.io 为例子
+2. 在仓库中设置启用 GitPage
+   ![20220525212029](https://static.aalmix.com/20220525212029.png)
+3. 首先使用 `hugo -D` 构建静态站点，默认会在 `public/` 目录下生成静态文件，将 public 文件夹的内容上传到仓库中
+   ![20220525212122](https://static.aalmix.com/20220525212122.png)
+4. 访问 https://wubh2012.github.io
 
-```
+![20220525212203](https://static.aalmix.com/20220525212203.png)
 
-## 配置评论系统
-
-## 使用自定义域名
-
-## 使用七牛云搭建自己的图床
-之前使用 gitee 但是限制访问了
-在 vscode 中 使用 PicGo 插件来上传图片，默认使用 SM.SM 图床。
-PicGo 配置
-常见的 PicGo 快捷方式
-
-```
-Ctrl+Alt+U  上传剪切板中的图片
-Ctrl+Alt+E  上传本地文件
-```
+大工告成，恭喜你现在有一个自己的博客了！如果博客有更新只要重新上传 public 文件夹即可, 后面会教大家如何使用 GitAction 自动更新部署。
