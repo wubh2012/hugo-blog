@@ -9,7 +9,7 @@
 &lt;h2 id="什么是-github-action">什么是 GitHub Action&lt;/h2>
 &lt;p>GitHub Actions 是 GitHub 官方推出的持续集成服务。通过 GitHub Actions 可以为你的项目提供持续构建，测试，程序打包和部署一条龙服务。&lt;/p>
 &lt;h2 id="怎么使用">怎么使用&lt;/h2>
-&lt;p>进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤操作即可。&lt;/p>
+&lt;p>进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤将操作即可。&lt;/p>
 &lt;p>&lt;img src="https://static.aalmix.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220526140607.png" alt="微信截图_20220526140607">
 &lt;img src="https://static.aalmix.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220526140646.png" alt="微信截图_20220526140646">&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
@@ -96,18 +96,20 @@
 &lt;span style="color:#ff79c6">restore-keys&lt;/span>: |&lt;span style="color:#f1fa8c">
 &lt;/span>&lt;span style="color:#f1fa8c"> &lt;/span> ${{ runner.os }}-node-
 - &lt;span style="color:#ff79c6">run&lt;/span>: npm i
-- &lt;span style="color:#ff79c6">run&lt;/span>: hugo --minify
+- &lt;span style="color:#ff79c6">run&lt;/span>: hugo --minify &lt;span style="color:#6272a4"># 使用hugo构建静态网页&lt;/span>
 - &lt;span style="color:#ff79c6">name&lt;/span>: Deploy
 &lt;span style="color:#ff79c6">uses&lt;/span>: peaceiris/actions-gh-pages@v3
 &lt;span style="color:#ff79c6">with&lt;/span>:
 &lt;span style="color:#ff79c6">github_token&lt;/span>: ${{ secrets.GITHUB_TOKEN }}
 &lt;span style="color:#ff79c6">publish_dir&lt;/span>: ./public
-&lt;span style="color:#ff79c6">cname&lt;/span>: blog.aalmix.com
+&lt;span style="color:#ff79c6">cname&lt;/span>: blog.aalmix.com &lt;span style="color:#6272a4"># 为了实现自定义域名，增加了 cname 配置&lt;/span>
 &lt;span style="color:#ff79c6">user_name&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;github-actions[bot]&amp;#34;&lt;/span>
 &lt;span style="color:#ff79c6">user_email&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;github-actions[bot]@users.noreply.github.com&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>以后我们每次提后后推送到仓库就会触发自动部署了，而且每天凌晨也会自动部署，这样是不是省事多了 😀 ！&lt;/p></description></item><item><title>使用hugo搭建博客 - 自定义域名</title><link>https://wubh2012.github.io/hugo-blog-custom-domain.html</link><pubDate>Wed, 25 May 2022 21:40:07 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-custom-domain.html</guid><description>&lt;p>在上一篇文章当中讲了如何使用 hugo 搭建了我们自己的静态博客并托管到了 github 上，但无法和我们自己的域名进行关联，这个时候我们就需要自定义域名了。&lt;/p>
+&lt;/div>&lt;p>配置好后我们每次推送更新到仓库，都会触发自动构建静态网页，默认放到 &lt;code>gh-pages&lt;/code> 分支，可能需要到设置中修改 Github Page 的源
+&lt;img src="https://static.aalmix.com/20220526180758.png" alt="20220526180758">&lt;/p>
+&lt;p>而且每天凌晨也会自动部署，这样是不是省事多了 😀 ！&lt;/p></description></item><item><title>使用hugo搭建博客 - 自定义域名</title><link>https://wubh2012.github.io/hugo-blog-custom-domain.html</link><pubDate>Wed, 25 May 2022 21:40:07 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-custom-domain.html</guid><description>&lt;p>在上一篇文章当中讲了如何使用 hugo 搭建了我们自己的静态博客并托管到了 github 上，但无法和我们自己的域名进行关联，这个时候我们就需要自定义域名了。&lt;/p>
 &lt;p>首先我们需要配置 DNS 解析，以腾讯云为例，在腾讯云的 DNS 解析记录中添加一个 CNAME 记录，主机记录的值为 &lt;code>blog&lt;/code>，记录值为&lt;code>wubh2012.github.io&lt;/code>&lt;/p>
 &lt;p>&lt;img src="https://static.aalmix.com/20220526132439.png" alt="20220526132439">&lt;/p>
 &lt;p>然后在 github page 的 Custom domain 填写记录值 &lt;code>blog.aalmix.com&lt;/code>&lt;/p>
