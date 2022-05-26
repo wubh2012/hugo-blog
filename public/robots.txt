@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://blog.aalmix.com/sitemap.xml
+Sitemap: https://wubh2012.github.io/sitemap.xml
