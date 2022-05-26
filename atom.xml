@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AALMIX's Blog</title><link>https://wubh2012.github.io/</link><description>Recent content on AALMIX's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 12 Apr 2022 14:13:41 +0800</lastBuildDate><atom:link href="https://wubh2012.github.io/atom.xml" rel="self" type="application/rss+xml"/><item><title>如何使用 hugo 搭建自己的博客</title><link>https://wubh2012.github.io/use-hugo-build-your-blog.html</link><pubDate>Tue, 12 Apr 2022 14:13:41 +0800</pubDate><guid>https://wubh2012.github.io/use-hugo-build-your-blog.html</guid><description>&lt;p>今天我们来讲讲如何使用 Hugo 搭建自己的博客。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AALMIX's Blog</title><link>https://wubh2012.github.io/</link><description>Recent content on AALMIX's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 May 2022 21:51:39 +0800</lastBuildDate><atom:link href="https://wubh2012.github.io/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用hugo搭建博客 - 利用 Utterances 搭建博客评论</title><link>https://wubh2012.github.io/hugo-blog-use-utterances.html</link><pubDate>Wed, 25 May 2022 21:51:39 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-use-utterances.html</guid><description>&lt;p>&lt;img src="https://static.aalmix.com/20220525220957.png" alt="20220525220957">&lt;/p>
+&lt;p>Utterances 来搭建博客评论，这是一个很好的博客评论系统，它可以让我们的博客更加简洁，更加美观，更加友好。&lt;/p>
+&lt;h2 id="如何安装">如何安装&lt;/h2>
+&lt;p>进入 &lt;a href="https://github.com/apps/utterances">https://github.com/apps/utterances&lt;/a> 页面，点击 Configure 按钮，选择 wubh2012.github.io 仓库来将 Utterances 安装到你的 GitHub 仓库中。
+&lt;img src="https://static.aalmix.com/20220525221420.png" alt="20220525221420">&lt;/p>
+&lt;p>&lt;img src="https://static.aalmix.com/20220525221351.png" alt="20220525221351">&lt;/p>
+&lt;p>当有用户发表评论时，Utterances 会自动将评论发送到 GitHub 仓库中。
+&lt;img src="https://static.aalmix.com/20220525221643.png" alt="20220525221643">&lt;/p></description></item><item><title>使用hugo搭建博客 - 利用 Github Actions 自动部署网站</title><link>https://wubh2012.github.io/hugo-blog-use-git-action-auto-deploy.html</link><pubDate>Wed, 25 May 2022 21:50:44 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-use-git-action-auto-deploy.html</guid><description>&lt;p>之前我们每次更新博客都需要重新上传 public 这个目录的文件，步骤比较繁琐，今天给大家分享一下我们可以通过 Github Actions 自动部署的方式来更新博客。&lt;/p>
+&lt;h2 id="什么是-github-action">什么是 GitHub Action&lt;/h2>
+&lt;p>GitHub Actions 是 GitHub 官方推出的持续集成服务。通过 GitHub Actions 可以为你的项目提供持续构建，测试，程序打包和部署一条龙服务。&lt;/p>
+&lt;h2 id="怎么使用">怎么使用&lt;/h2>
+&lt;p>进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤操作即可。&lt;/p>
+&lt;p>&lt;img src="https://static.aalmix.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220526140607.png" alt="微信截图_20220526140607">
+&lt;img src="https://static.aalmix.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220526140646.png" alt="微信截图_20220526140646">&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#ff79c6">name&lt;/span>: github pages
+&lt;span style="color:#ff79c6">on&lt;/span>: &lt;span style="color:#6272a4">#&lt;/span>
+&lt;span style="color:#ff79c6">schedule&lt;/span>:
+- &lt;span style="color:#ff79c6">cron&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;0 0 * * *&amp;#34;&lt;/span> &lt;span style="color:#6272a4"># every day at midnight&lt;/span>
+&lt;span style="color:#ff79c6">push&lt;/span>: &lt;span style="color:#6272a4"># when a new commit is pushed&lt;/span>
+&lt;span style="color:#ff79c6">branches&lt;/span>:
+- master
+&lt;span style="color:#ff79c6">jobs&lt;/span>:
+&lt;span style="color:#ff79c6">deploy&lt;/span>:
+&lt;span style="color:#ff79c6">runs-on&lt;/span>: ubuntu-18.04
+&lt;span style="color:#ff79c6">steps&lt;/span>:
+- &lt;span style="color:#ff79c6">uses&lt;/span>: actions/checkout@v2
+&lt;span style="color:#ff79c6">with&lt;/span>:
+&lt;span style="color:#ff79c6">submodules&lt;/span>: &lt;span style="color:#ff79c6">true&lt;/span> &lt;span style="color:#6272a4"># Fetch Hugo themes (true OR recursive)&lt;/span>
+&lt;span style="color:#ff79c6">fetch-depth&lt;/span>: &lt;span style="color:#bd93f9">0&lt;/span> &lt;span style="color:#6272a4"># Fetch all history for .GitInfo and .Lastmod&lt;/span>
+- &lt;span style="color:#ff79c6">name&lt;/span>: Setup Hugo
+&lt;span style="color:#ff79c6">uses&lt;/span>: peaceiris/actions-hugo@v2
+&lt;span style="color:#ff79c6">with&lt;/span>:
+&lt;span style="color:#ff79c6">hugo-version&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;0.82.0&amp;#34;&lt;/span>
+&lt;span style="color:#ff79c6">extended&lt;/span>: &lt;span style="color:#ff79c6">true&lt;/span>
+- &lt;span style="color:#ff79c6">name&lt;/span>: Setup Node
+&lt;span style="color:#ff79c6">uses&lt;/span>: actions/setup-node@v2
+&lt;span style="color:#ff79c6">with&lt;/span>:
+&lt;span style="color:#ff79c6">node-version&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;12.x&amp;#34;&lt;/span>
+- &lt;span style="color:#ff79c6">name&lt;/span>: Cache dependencies
+&lt;span style="color:#ff79c6">uses&lt;/span>: actions/cache@v1
+&lt;span style="color:#ff79c6">with&lt;/span>:
+&lt;span style="color:#ff79c6">path&lt;/span>: ~/.npm
+&lt;span style="color:#ff79c6">key&lt;/span>: ${{ runner.os }}-node-${{ hashFiles(&amp;#39;**/package-lock.json&amp;#39;) }}
+&lt;span style="color:#ff79c6">restore-keys&lt;/span>: |&lt;span style="color:#f1fa8c">
+&lt;/span>&lt;span style="color:#f1fa8c"> &lt;/span> ${{ runner.os }}-node-
+- &lt;span style="color:#ff79c6">run&lt;/span>: npm i
+- &lt;span style="color:#ff79c6">run&lt;/span>: hugo --minify
+- &lt;span style="color:#ff79c6">name&lt;/span>: Deploy
+&lt;span style="color:#ff79c6">uses&lt;/span>: peaceiris/actions-gh-pages@v3
+&lt;span style="color:#ff79c6">with&lt;/span>:
+&lt;span style="color:#ff79c6">github_token&lt;/span>: ${{ secrets.GITHUB_TOKEN }}
+&lt;span style="color:#ff79c6">publish_dir&lt;/span>: ./public
+&lt;span style="color:#ff79c6">cname&lt;/span>: blog.aalmix.com
+&lt;span style="color:#ff79c6">user_name&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;github-actions[bot]&amp;#34;&lt;/span>
+&lt;span style="color:#ff79c6">user_email&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;github-actions[bot]@users.noreply.github.com&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以后我们每次提后后推送到仓库就会触发自动部署了，而且每天凌晨也会自动部署，这样是不是省事多了 😀 ！&lt;/p></description></item><item><title>如何使用 hugo 搭建自己的博客</title><link>https://wubh2012.github.io/use-hugo-build-your-blog.html</link><pubDate>Tue, 12 Apr 2022 14:13:41 +0800</pubDate><guid>https://wubh2012.github.io/use-hugo-build-your-blog.html</guid><description>&lt;p>今天我们来讲讲如何使用 Hugo 搭建自己的博客。&lt;/p>
 &lt;h2 id="下载-hugo">下载 Hugo&lt;/h2>
 &lt;p>首先我们到 &lt;a href="https://github.com/gohugoio/hugo/releases">Hugo Release&lt;/a> 页面根据自己的操作系统版本下载 Hugo，本文以 Windows 为例，我们下载 Windows x64 版本，然后将文件解压到 &lt;code>D:/software/hugo&lt;/code> 目录下&lt;/p>
 &lt;p>&lt;img src="https://static.aalmix.com/20220417210225.png" alt="20220417210225">&lt;/p>
