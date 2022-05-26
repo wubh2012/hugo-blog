@@ -13,7 +13,7 @@ GitHub Actions 是 GitHub 官方推出的持续集成服务。通过 GitHub Acti
 
 ## 怎么使用
 
-进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤操作即可。
+进入 wubh2012.github.io 仓库，点击 Actions 选项卡，开始创建一个新的 Actions，按照下面的步骤将操作即可。
 
 ![微信截图_20220526140607](https://static.aalmix.com/微信截图_20220526140607.png)
 ![微信截图_20220526140646](https://static.aalmix.com/微信截图_20220526140646.png)
@@ -57,16 +57,19 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm i
-      - run: hugo --minify
+      - run: hugo --minify # 使用hugo构建静态网页
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: blog.aalmix.com
+          cname: blog.aalmix.com # 为了实现自定义域名，增加了 cname 配置
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
 ```
 
-以后我们每次提后后推送到仓库就会触发自动部署了，而且每天凌晨也会自动部署，这样是不是省事多了 😀 ！
+配置好后我们每次推送更新到仓库，都会触发自动构建静态网页，默认放到 `gh-pages` 分支，可能需要到设置中修改 Github Page 的源
+![20220526180758](https://static.aalmix.com/20220526180758.png)
+
+而且每天凌晨也会自动部署，这样是不是省事多了 😀 ！
