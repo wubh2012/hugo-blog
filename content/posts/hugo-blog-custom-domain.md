@@ -1,7 +1,7 @@
 ---
 title: "使用hugo搭建博客 - 自定义域名"
-date: 2022-05-25T21:52:07+08:00
-draft: true
+date: 2022-05-25T21:40:07+08:00
+draft: false
 tags: ["博客", "hugo"]
 ---
 
