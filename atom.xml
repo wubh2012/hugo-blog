@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AALMIX's Blog</title><link>https://wubh2012.github.io/</link><description>Recent content on AALMIX's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 May 2022 21:51:39 +0800</lastBuildDate><atom:link href="https://wubh2012.github.io/atom.xml" rel="self" type="application/rss+xml"/><item><title>使用hugo搭建博客 - 利用 Utterances 搭建博客评论</title><link>https://wubh2012.github.io/hugo-blog-use-utterances.html</link><pubDate>Wed, 25 May 2022 21:51:39 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-use-utterances.html</guid><description>&lt;p>&lt;img src="https://static.aalmix.com/20220525220957.png" alt="20220525220957">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AALMIX's Blog</title><link>https://wubh2012.github.io/</link><description>Recent content on AALMIX's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 30 Jul 2022 17:19:16 +0800</lastBuildDate><atom:link href="https://wubh2012.github.io/atom.xml" rel="self" type="application/rss+xml"/><item><title>美化 Windows Terminal</title><link>https://wubh2012.github.io/make-a-beautiful-windows-terminal.html</link><pubDate>Sat, 30 Jul 2022 17:19:16 +0800</pubDate><guid>https://wubh2012.github.io/make-a-beautiful-windows-terminal.html</guid><description>&lt;p>&lt;img src="https://static.aalmix.com/20220730172459.png" alt="20220730172459">&lt;/p>
+&lt;h2 id="安装-powershell7">安装 PowerShell7&lt;/h2>
+&lt;p>打开这个&lt;a href="https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2">链接&lt;/a>去下载 PowerShell7 安装包直接运行就完了&lt;/p>
+&lt;h2 id="安装-on-my-poshhttpsohmyposhdevdocsinstallationwindows">安装 &lt;a href="https://ohmyposh.dev/docs/installation/windows">on-my-posh&lt;/a>&lt;/h2>
+&lt;p>执行下面命令 powershell 将安装 on-my-posh 并且应用 on-my-posh 最新主题&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://ohmyposh.dev/install.ps1&amp;#39;))
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装字体">安装字体&lt;/h2>
+&lt;p>去 Nerd Fonts 下载 Caskaydia Cove Nerd Font 字体，然后 &lt;code>Ctrl+Shift+,&lt;/code> 打开 Windows Terminal 设置，配置 powershell 7 的字体&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">{
+&amp;#34;colorScheme&amp;#34;: &amp;#34;One Half Dark&amp;#34;,
+&amp;#34;guid&amp;#34;: &amp;#34;{574e775e-4f2a-5b96-ac1e-a2962a402336}&amp;#34;,
+&amp;#34;hidden&amp;#34;: false,
+&amp;#34;name&amp;#34;: &amp;#34;PowerShell&amp;#34;,
+&amp;#34;source&amp;#34;: &amp;#34;Windows.Terminal.PowershellCore&amp;#34;,
+&amp;#34;font&amp;#34;:
+{
+&amp;#34;face&amp;#34;: &amp;#34;CaskaydiaCove NF&amp;#34;,
+&amp;#34;size&amp;#34;: 12
+}
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="选择主题">选择主题&lt;/h2>
+&lt;p>先使用 &lt;code>notepad $PROFILE&lt;/code> 命令打开 PowerShell 的配置文件，然后在配置文件中添加下面的命令&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">oh-my-posh init pwsh --config &amp;#34;$env:POSH_THEMES_PATH\zash.omp.json&amp;#34; | Invoke-Expression
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装文件图标库">安装文件图标库&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Install-Module -Name Terminal-Icons -Repository PSGallery
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用图标需要在 $PROFILE 文件中添加下面命令&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Import-Module -Name Terminal-Icons
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置命令行自动补全和提示">设置命令行自动补全和提示&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其他设置">其他设置&lt;/h2>
+&lt;p>将 Git Bash 添加到 Windows Terminal&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Git Bash命令行 &amp;#34;C:\Program Files\Git\bin\bash.exe&amp;#34; --login -i
+启动目录 %USERPROFILE%
+图标 C:\Program Files\Git\mingw64\share\git\git-for-windows.ico
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>完整的 powershell 设置如下：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config &amp;#34;$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json&amp;#34; | Invoke-Expression
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Import-Module -Name Terminal-Icons
+Import-Module posh-git
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参考连接： &lt;a href="https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/custom-prompt-setup">https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/custom-prompt-setup&lt;/a>&lt;/p></description></item><item><title>使用hugo搭建博客 - 利用 Utterances 搭建博客评论</title><link>https://wubh2012.github.io/hugo-blog-use-utterances.html</link><pubDate>Wed, 25 May 2022 21:51:39 +0800</pubDate><guid>https://wubh2012.github.io/hugo-blog-use-utterances.html</guid><description>&lt;p>&lt;img src="https://static.aalmix.com/20220525220957.png" alt="20220525220957">&lt;/p>
 &lt;p>Utterances 来搭建博客评论，这是一个很好的博客评论系统，它可以让我们的博客更加简洁，更加美观，更加友好。&lt;/p>
 &lt;h2 id="如何安装">如何安装&lt;/h2>
 &lt;p>进入 &lt;a href="https://github.com/apps/utterances">https://github.com/apps/utterances&lt;/a> 页面，点击 Configure 按钮，选择 wubh2012.github.io 仓库来将 Utterances 安装到你的 GitHub 仓库中。
@@ -1743,4 +1859,102 @@ Scrum中的概念：
 &lt;p>Q: 假如项目在开始的时候，客户一定要我们承诺什么时候能交付，这个怎么解决？
 A: 敏捷自己有一套估算和计划方法&lt;/p>
 &lt;h2 id="工具">工具&lt;/h2>
-&lt;p>JIRA: 项目与事务跟踪工具，被广泛应用于缺陷跟踪，客户服务，需求收集，敏捷管理&lt;/p></description></item></channel></rss>
+&lt;p>JIRA: 项目与事务跟踪工具，被广泛应用于缺陷跟踪，客户服务，需求收集，敏捷管理&lt;/p></description></item><item><title/><link>https://wubh2012.github.io/%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA%E6%BC%82%E4%BA%AE%E7%9A%84window-powershell.html</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wubh2012.github.io/%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA%E6%BC%82%E4%BA%AE%E7%9A%84window-powershell.html</guid><description>&lt;p>title: 配置一个漂亮的 Windows PowerShell
+date: 2022-07-30 17:14:00
+tags: [&amp;ldquo;shell&amp;rdquo;, &amp;ldquo;windows terminal&amp;rdquo;]&lt;/p>
+&lt;h2 id="安装-powershell7">安装 PowerShell7&lt;/h2>
+&lt;p>打开这个&lt;a href="https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2">链接&lt;/a>去下载 PowerShell7 安装包直接运行就完了&lt;/p>
+&lt;h2 id="安装-on-my-poshhttpsohmyposhdevdocsinstallationwindows">安装 &lt;a href="https://ohmyposh.dev/docs/installation/windows">on-my-posh&lt;/a>&lt;/h2>
+&lt;p>执行下面命令 powershell 将安装 on-my-posh 并且应用 on-my-posh 最新主题&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&amp;#39;https://ohmyposh.dev/install.ps1&amp;#39;))
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装字体">安装字体&lt;/h2>
+&lt;p>去 Nerd Fonts 下载 Caskaydia Cove Nerd Font 字体，然后 &lt;code>Ctrl+Shift+,&lt;/code> 打开 Windows Terminal 设置，配置 powershell 7的字体&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">{
+&amp;#34;colorScheme&amp;#34;: &amp;#34;One Half Dark&amp;#34;,
+&amp;#34;guid&amp;#34;: &amp;#34;{574e775e-4f2a-5b96-ac1e-a2962a402336}&amp;#34;,
+&amp;#34;hidden&amp;#34;: false,
+&amp;#34;name&amp;#34;: &amp;#34;PowerShell&amp;#34;,
+&amp;#34;source&amp;#34;: &amp;#34;Windows.Terminal.PowershellCore&amp;#34;,
+&amp;#34;font&amp;#34;:
+{
+&amp;#34;face&amp;#34;: &amp;#34;CaskaydiaCove NF&amp;#34;,
+&amp;#34;size&amp;#34;: 12
+}
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="设置-profile">设置 profile&lt;/h2>
+&lt;h3 id="选择主题">选择主题&lt;/h3>
+&lt;p>先使用 &lt;code>notepad $PROFILE&lt;/code> 命令打开 PowerShell 的配置文件，然后在配置文件中添加下面的命令&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">oh-my-posh init pwsh --config &amp;#34;$env:POSH_THEMES_PATH\zash.omp.json&amp;#34; | Invoke-Expression
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="安装文件图标库">安装文件图标库&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Install-Module -Name Terminal-Icons -Repository PSGallery
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>使用图标需要在 $PROFILE 文件中添加下面命令&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Import-Module -Name Terminal-Icons
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="设置命令行自动补全和提示">设置命令行自动补全和提示&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="将-git-bash-添加到-windows-terminal">将 Git Bash 添加到 Windows Terminal&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">&lt;code class="language-fallback" data-lang="fallback">Git Bash命令行 &amp;#34;C:\Program Files\Git\bin\bash.exe&amp;#34; --login -i
+启动目录 %USERPROFILE%
+图标 C:\Program Files\Git\mingw64\share\git\git-for-windows.ico
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参考连接： &lt;a href="https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/custom-prompt-setup">https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/custom-prompt-setup&lt;/a>&lt;/p></description></item></channel></rss>
